@@ -1131,6 +1131,7 @@ class UrlEncoder extends EncodeDecoderBase {
 				' AND field_alias=' . $this->databaseConnection->fullQuoteStr($configuration['alias_field'], 'tx_realurl_uniqalias') .
 				' AND field_id=' . $this->databaseConnection->fullQuoteStr($configuration['id_field'], 'tx_realurl_uniqalias') .
 				' AND tablename=' . $this->databaseConnection->fullQuoteStr($configuration['table'], 'tx_realurl_uniqalias') .
+                ' AND rootpage_id=' . $this->rootPageId .
 				' AND lang=' . intval($languageUid) .
 				($onlyThisAlias ? ' AND value_alias=' . $this->databaseConnection->fullQuoteStr($onlyThisAlias, 'tx_realurl_uniqalias') : ' AND expire=0'),
 			'', 'expire'
@@ -1525,6 +1526,7 @@ class UrlEncoder extends EncodeDecoderBase {
 					AND field_alias=' . $this->databaseConnection->fullQuoteStr($configuration['alias_field'], 'tx_realurl_uniqalias') . '
 					AND field_id=' . $this->databaseConnection->fullQuoteStr($configuration['id_field'], 'tx_realurl_uniqalias') . '
 					AND tablename=' . $this->databaseConnection->fullQuoteStr($configuration['table'], 'tx_realurl_uniqalias') . '
+				    AND rootpage_id=' . $this->rootPageId . '
 					AND lang=' . intval($languageUid) . '
 					AND expire=0', array('expire' => time() + 24 * 3600 * ($configuration['expireDays'] ? $configuration['expireDays'] : 60)));
 
@@ -1535,6 +1537,7 @@ class UrlEncoder extends EncodeDecoderBase {
 				'field_id' => $configuration['id_field'],
 				'value_alias' => $uniqueAlias,
 				'value_id' => $idValue,
+				'rootpage_id' => $this->rootPageId,
 				'lang' => $languageUid
 			);
 			$this->databaseConnection->exec_INSERTquery('tx_realurl_uniqalias', $insertArray);

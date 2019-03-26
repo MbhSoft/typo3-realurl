@@ -108,6 +108,9 @@
 			<trans-unit id="module.tableHeader.id">
 				<source>Id</source>
 			</trans-unit>
+			<trans-unit id="module.tableHeader.rootpageId">
+				<source>Rootpage id</source>
+			</trans-unit>
 			<trans-unit id="module.tableHeader.language">
 				<source>Language</source>
 			</trans-unit>

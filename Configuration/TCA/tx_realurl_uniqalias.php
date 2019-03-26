@@ -83,6 +83,13 @@ $GLOBALS['TCA']['tx_realurl_uniqalias'] = array(
 				'eval' => 'required',
 			)
 		),
+		'rootpage_id' => array(
+			'label' => 'LLL:EXT:realurl/Resources/Private/Language/locallang_db.xlf:tx_realurl_uniqalias.field_id',
+			'config' => array(
+				'type' => 'input',
+				'eval' => 'required',
+			)
+		),
 	),
 	'types' => array(
 		'types' => array(

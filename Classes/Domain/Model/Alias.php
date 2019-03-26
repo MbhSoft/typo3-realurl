@@ -48,6 +48,9 @@ class Alias extends AbstractEntity {
 	/** @var int */
 	protected $valueId;
 
+	/** @var int */
+	protected $rootpageId;
+
 	/**
 	 * @return int
 	 */
@@ -159,4 +162,19 @@ class Alias extends AbstractEntity {
 		return is_array($row) && isset($row[$this->fieldAlias]) ? $row[$this->fieldAlias] : '';
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getRootpageId()
+	{
+		return $this->rootpageId;
+	}
+
+	/**
+	 * @param int $rootpageId
+	 */
+	public function setRootpageId(int $rootpageId)
+	{
+		$this->rootpageId = $rootpageId;
+	}
 }
